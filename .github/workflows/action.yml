@@ -2,10 +2,10 @@ name: 'GitHub Actions Weather Bot'
 
 on:
   push:  
-    branches:    
-      - master
-  #schedule:
-    #- cron: '0 22 * * *'
+    #branches:    
+      #- master
+    schedule:
+      - cron: '0 22 * * *'
 
 jobs:
   bot:
@@ -24,6 +24,6 @@ jobs:
           password: 'mkgvgcygelxybehh'
           subject: ShenZhen Weather Report
           body: file://result.html
-          to: '837109200@qq.com,812634676@qq.com'
+          to: '837109200@qq.com,812634676@qq.com,435119880@qq.com'
           from: GitHub Actions
           content_type: text/html
