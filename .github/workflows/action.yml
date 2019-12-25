@@ -24,6 +24,6 @@ jobs:
           password: 'mkgvgcygelxybehh'
           subject: ShenZhen Weather Report
           body: file://result.html
-          to: '837109200@qq.com,812634676@qq.com,435119880@qq.com'
+          to: '837109200@qq.com,812634676@qq.com,435119880@qq.com,1904390016@qq.com'
           from: GitHub Actions
           content_type: text/html

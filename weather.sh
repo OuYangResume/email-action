@@ -1,7 +1,7 @@
 ###
  # @Author: your name
  # @Date: 2019-12-25 17:05:25
- # @LastEditTime : 2019-12-25 17:28:29
+ # @LastEditTime : 2019-12-25 17:49:18
  # @LastEditors  : Please set LastEditors
  # @Description: In User Settings Edit
  # @FilePath: /email-action/weather.sh
@@ -19,4 +19,4 @@ curl \
   -H "Accept-Language: $LANGUAGE" \
   -H "User-Agent: $UA" \
   -o result.html \
-  wttr.in/$CITY
+  wttr.in/$CITY?format=4\&$UNIT
