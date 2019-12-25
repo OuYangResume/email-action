@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-25 21:35:09
- * @LastEditTime : 2019-12-25 22:00:57
+ * @LastEditTime : 2019-12-25 22:42:56
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /email-action/index.html
@@ -13,15 +13,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>天气</title>
 </head>
 
 <body style="display: flex;
 flex-direction: column;">
-    <iframe src="./ShenZhen.html" frameborder="0"></iframe>
-    <iframe src="./WuHan.html" frameborder="0"></iframe>
-    <iframe src="./YiChun.html" frameborder="0"></iframe>
-    <iframe src="./NanChang.html" frameborder="0"></iframe>
+
+    <div id="app-5">
+       <div v-for="(item,index) in message" :key="index">
+           <iframe :src='item.src' frameborder="0"></iframe>
+       </div>
+    </div>
 </body>
+<script>
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: [
+                {
+                    src:'./ShenZhen.html',
+                },
+                {
+                    src:'./ShenZhen.html',
+                },
+                {
+                    src:'./ShenZhen.html',
+                },
+                {
+                    src:'./ShenZhen.html',
+                }
+            ]
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
 
 </html>
