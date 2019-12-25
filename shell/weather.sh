@@ -1,7 +1,7 @@
 ###
  # @Author: oouyang
  # @Date: 2019-12-25 17:05:25
- # @LastEditTime : 2019-12-25 21:05:15
+ # @LastEditTime : 2019-12-25 22:12:57
  # @LastEditors  : Please set LastEditors
  # @Description: 获取各个城市的天气并生成对应城市的文件
  # @FilePath: /email-action/weather.sh
@@ -37,5 +37,5 @@ do
       -H "Accept-Language: $LANGUAGE" \
       -H "User-Agent: $UA" \
       -o $item.html \
-       wttr.in/$item?format=4\&$UNIT
+       wttr.in/$item?format="%l:+%C+%c+%t"\&$UNIT
 done
