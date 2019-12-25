@@ -9,7 +9,7 @@ on:
 
 jobs:
   bot1:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
