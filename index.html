@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-25 21:35:09
- * @LastEditTime : 2019-12-25 22:42:56
+ * @LastEditTime : 2019-12-25 22:57:46
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /email-action/index.html
@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>天气</title>
 </head>
 
@@ -21,9 +22,9 @@
 flex-direction: column;">
 
     <div id="app-5">
-       <div v-for="(item,index) in message" :key="index">
-           <iframe :src='item.src' frameborder="0"></iframe>
-       </div>
+        <div v-for="(item,index) in message" :key="index">
+           {{item}}
+        </div>
     </div>
 </body>
 <script>
@@ -31,23 +32,38 @@ flex-direction: column;">
         el: '#app-5',
         data: {
             message: [
-                {
-                    src:'./ShenZhen.html',
-                },
-                {
-                    src:'./ShenZhen.html',
-                },
-                {
-                    src:'./ShenZhen.html',
-                },
-                {
-                    src:'./ShenZhen.html',
-                }
+               
             ]
         },
+        mounted() {
+            this.init()
+        },
         methods: {
-            reverseMessage: function () {
-                this.message = this.message.split('').reverse().join('')
+            init() {
+
+                function getUserAccount() {
+                    return axios.get('./ShenZhen.json');
+                }
+
+                function getUserPermissions() {
+                    return axios.get('./WuHan.json');
+                }
+
+                function getUserAccount1() {
+                    return axios.get('./YiChun.json');
+                }
+
+                function getUserPermissions1() {
+                    return axios.get('./NanChang.json');
+                }
+                axios.all([getUserAccount(), getUserPermissions(),getUserAccount1(), getUserPermissions1()])
+                    .then(axios.spread( (acct, perms,acct1, perms1)=> {
+                        console.log(acct,perms,acct1, perms1)
+                        this.message.push(acct.data)
+                        this.message.push(perms.data)
+                        this.message.push(acct1.data)
+                        this.message.push(perms1.data)
+                    }));
             }
         }
     })
