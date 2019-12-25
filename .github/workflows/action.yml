@@ -14,8 +14,10 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Get Result'
-        run: bash ./weather.sh
+        run: bash ./shell/ShenZhen.sh
+  bot1:
       - name: 'Send mail'
+        needs: bot
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.qq.com
@@ -23,7 +25,22 @@ jobs:
           username: '812634676@qq.com'
           password: 'mkgvgcygelxybehh'
           subject: ShenZhen Weather Report
-          body: file://result.html
-          to: '837109200@qq.com,812634676@qq.com,435119880@qq.com,1904390016@qq.com'
+          body: file://ShenZhen.html
+          to: '812634676@qq.com,837109200@qq.com,'
           from: GitHub Actions
           content_type: text/html
+  bot2:
+      - name: 'Send mail'
+        needs: bot
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: '812634676@qq.com'
+          password: 'mkgvgcygelxybehh'
+          subject: WuHan Weather Report
+          body: file://WuHan.html
+          to: '812634676@qq.com,'
+          from: GitHub Actions
+          content_type: text/html
+  
