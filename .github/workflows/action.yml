@@ -21,7 +21,7 @@ jobs:
           username: '812634676@qq.com'
           password: 'mkgvgcygelxybehh'
           subject:  每日天气
-          body: file://ShenZhen.json
+          body: 'file://ShenZhen.json,file://WuHan.json'
           to: '837109200@qq.com,812634676@qq.com,435119880@qq.com,1904390016@qq.com,1576686869@qq.com,1576686869@qq.com,952437594@qq.com'
           from: GitHub Actions
           content_type: text/html
