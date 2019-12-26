@@ -21,8 +21,8 @@ jobs:
           username: '812634676@qq.com'
           password: 'mkgvgcygelxybehh'
           subject:  每日天气
-          body: 'file://ShenZhen.json'
-          to: '837109200@qq.com,812634676@qq.com,1904390016@qq.com,1576686869@qq.com,952437594@qq.com'
+          body: 'file://ShenZhen.html'
+          to: '837109200@qq.com,812634676@qq.com,1904390016@qq.com,1576686869@qq.com,1121963992@qq.com'
           from: GitHub Actions
           content_type: text/html
       - name: 'Send mail'
@@ -32,8 +32,32 @@ jobs:
           server_port: 465
           username: '812634676@qq.com'
           password: 'mkgvgcygelxybehh'
-          subject:  每日天气
-          body: file://YiChun.json
-          to: '812634676@qq.com,435119880@qq.com'
+          subject:  鲍局早安，今日天气
+          body: file://YiChun.html
+          to: '435119880@qq.com'
+          from: GitHub Actions
+          content_type: text/html
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: '812634676@qq.com'
+          password: 'mkgvgcygelxybehh'
+          subject:  刘主任早安，今日天气
+          body: file://NanChang.html
+          to: '952437594@qq.com'
+          from: GitHub Actions
+          content_type: text/html
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          username: '812634676@qq.com'
+          password: 'mkgvgcygelxybehh'
+          subject:  雍总早安，今日天气
+          body: file://ChengDu.html
+          to: '1065348398@qq.com'
           from: GitHub Actions
           content_type: text/html
